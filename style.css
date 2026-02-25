@@ -1,0 +1,168 @@
+:root {
+    /*ROOT crea variables, los nombres tiene que ir con 2 guiones antes*/
+    --detalles: #00C27E;
+    --blanco: #FFFF;
+    --negroazulado: #0D0D21;
+    --negrogris: #1C1C1C;
+    --gris: #7D7D7D
+}
+
+/*Generales*/
+*,
+*::after,
+*::before {
+    /*Elimna a todos los elementos antes y despues*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /*asi se llama una variable en css*/
+    background-color: var(--negrogris);
+    color: var(--blanco);
+}
+
+ul,
+ol {
+    list-style: none;
+    /*quita puntos y numero*/
+}
+
+a {
+    text-decoration: none;
+}
+
+img,
+svg {
+    width: 150px;
+}
+
+h1 {
+    font-size: 24px;
+    /*font-size es el tamaño de la letra, recomendacion para h1: PC: 32px y Tablet: 28px, cel: 24px*/
+    font-weight: 700;
+    /*este es el grosor de la letra*/
+}
+
+h2 {
+    font-size: 20px;
+}
+
+p,
+a {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.contenedor {
+    margin: 0 auto;
+    text-align: center;
+}
+#header-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    user-select: none;
+    &:hover {
+        cursor: pointer;
+        color: var(--detalles);
+    }
+}
+.btns {
+    border: none;
+    padding: none;
+    background-color: transparent;
+    color: var(--blanco);
+    font-size: 18px;
+    &:hover {
+        color: var(--detalles);
+        cursor: pointer;
+        padding: 2px 4px;
+        border: 1px solid var(--detalles);
+        border-radius: 8px;
+        transition: all linear 0.5s;
+    }
+}
+
+/* Estilos Header */
+header {
+    width: 100%;
+    .header {
+        /*Esto es anidamiento*/
+        background-color: var(--negroazulado);
+        max-width: 1024px;
+        /*Define el tamaño maximo que puede crecer la caja*/
+        margin: 20px auto 0;
+        /* li, .header-thems, ul {
+            display: inline-block;
+        } */
+        display: flex; /*Hace que los elementos dentro de la caja se coloquen en una fila*/
+        justify-content: space-between; /*Se separa por columan de la caja padre*/
+        align-items: center;
+        padding: 20px 10px;
+        border-radius: 8px;
+        .header-logo {
+            color: var(--detalles);
+            font-size: 24px;
+            font-weight: 900;
+            /*
+            capitalize: primera letra en mayuscula
+            lowercase: pone todo en minuscula
+            uppercase: pone todo en mayuscula
+            */
+            text-transform: uppercase;
+        }
+        .header-links {
+            display: none;
+            .header-link {
+                color: var(--gris);
+                text-transform: uppercase;
+                &:hover {
+                    color: var(--detalles);
+                }
+            }
+        }
+        .header-icon {
+            stroke: var(--gris);
+            &:hover {
+                cursor: pointer;
+                stroke: var(--detalles);
+            }
+        }
+        .abierto {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            top: 0;
+            z-index: 1;
+            background-color: var(--negrogris);
+            a {
+                font-size: 22px;
+            }
+        }
+        
+    }
+}
+@media (min-width: 480px) { /*el media-cueri, trabaja con el tamaño de la pantalla aplicando los estilos respetando las medidas del min o max width*/
+    header {
+        .header {
+            .header-icon {
+                display: none;
+            }
+            .header-links {
+                display: flex;
+                align-items: center;
+                gap: 10px; /*es el espaciado entre los elementos*/
+            }
+        }
+    }
+    
+}
